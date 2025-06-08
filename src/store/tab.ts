@@ -1,4 +1,5 @@
 import type { RouteLocationNormalized } from 'vue-router'
+import type { StoreDefinition } from 'pinia'
 import { router } from '@/router'
 
 interface TabState {
@@ -6,7 +7,27 @@ interface TabState {
   tabs: RouteLocationNormalized[]
   currentTabPath: string
 }
-export const useTabStore = defineStore('tab-store', {
+
+export const useTabStore: StoreDefinition<
+  'tab-store',
+  TabState,
+  {
+    allTabs(state: TabState): RouteLocationNormalized[]
+  },
+  {
+    addTab(route: RouteLocationNormalized): void
+    closeTab(fullPath: string): Promise<void>
+    closeOtherTabs(fullPath: string): void
+    closeLeftTabs(fullPath: string): void
+    closeRightTabs(fullPath: string): void
+    clearAllTabs(): void
+    closeAllTabs(): void
+    hasExistTab(fullPath: string): boolean
+    setCurrentTab(fullPath: string): void
+    getTabIndex(fullPath: string): number
+    modifyTab(fullPath: string, modifyFn: (route: RouteLocationNormalized) => void): void
+  }
+> = defineStore('tab-store', {
   state: (): TabState => {
     return {
       pinTabs: [],

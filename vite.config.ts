@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, __dirname, '') as ImportMetaEnv
   const envConfig = serviceConfig[mode as ServiceEnvType]
   return {
-    base: env.VITE_BASE_URL,
+    // base: env.VITE_BASE_URL,
     plugins: createVitePlugins(env),
     // plugins: [
     //   vue(),

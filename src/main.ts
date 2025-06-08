@@ -1,6 +1,6 @@
 import type { App } from 'vue'
-import { installRouter } from '@/router'
-import { installPinia } from '@/store'
+import { installRouter } from './router'
+import { installPinia } from './store'
 import AppVue from './App.vue'
 import AppLoading from './components/common/AppLoading.vue'
 

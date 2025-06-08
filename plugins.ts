@@ -18,7 +18,7 @@ import electron from 'vite-plugin-electron/simple'
 * @return {*}
 */
 
-export function createVitePlugins(env: ImportMetaEnv) {
+export function createVitePlugins(env: any) { // ImportMetaEnv
   const plugins = [
     // support vue
     vue(),
