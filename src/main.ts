@@ -29,7 +29,13 @@ async function setupApp() {
   appLoading.unmount()
 
   // Mount
-  app.mount('#app')
+  app.mount('#app').$nextTick(() => {
+    console.log('App mounted successfully')
+    // Use contextBridge
+    window.ipcRenderer.on('main-process-message', (_event, message) => {
+      console.log(message)
+    })
+  })
 }
 
 setupApp()

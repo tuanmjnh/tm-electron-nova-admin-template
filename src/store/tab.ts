@@ -8,12 +8,7 @@ interface TabState {
   currentTabPath: string
 }
 
-export const useTabStore: StoreDefinition<
-  'tab-store',
-  TabState,
-  {
-    allTabs(state: TabState): RouteLocationNormalized[]
-  },
+export const useTabStore: StoreDefinition<'tab-store', TabState, { allTabs(state: TabState): RouteLocationNormalized[] },
   {
     addTab(route: RouteLocationNormalized): void
     closeTab(fullPath: string): Promise<void>

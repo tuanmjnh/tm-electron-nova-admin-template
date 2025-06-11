@@ -15,18 +15,13 @@ declare global {
     $dialog: import('naive-ui').DialogApi
     $message: import('naive-ui').MessageApi
     $notification: import('naive-ui').NotificationApi
+    // expose in the `electron/preload/index.ts`
+    ipcRenderer: import('electron').IpcRenderer
   }
 }
 
 declare const AMap: any
 declare const BMap: any
-
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue'
-
-  const component: DefineComponent
-  export default component
-}
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
